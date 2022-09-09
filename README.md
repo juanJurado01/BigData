@@ -1,1 +1,3 @@
 # BigData
+
+Parcial- Juan Jurado
