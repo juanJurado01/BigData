@@ -15,7 +15,7 @@ def lambda_handler2():
     
     s3 = boto3.resource('s3')
     #Con download_file descargamos el archivo txt que se encuentra en el s3
-    s3.Bucket('dolarraw01').download_file('dolar '+ x2 + '.txt', '/tmp/dolar.txt')
+    s3.Bucket('dolarraw12').download_file('dolar '+ x2 + '.txt', '/tmp/dolar.txt')
     
     websites = pd.read_csv('dolar '+ x2 + '.txt',header = None) #leemos el archivo txt
     websites.columns = ['FechaHora', 'Valor'] #Agregamos lo nombres de las columnas al csv
@@ -24,9 +24,9 @@ def lambda_handler2():
     #Mediante la libreria boto3 le agregamos el bucket con la variable s3
     client= boto3.client("s3","us-east-1")
     s3= boto3.resource('s3')
-    bucket = s3.Bucket('dolarprocessed01')
+    bucket = s3.Bucket('dolarprocessed12')
 
-    client.put_object(Body='dolar '+ x2 + '.txt', Bucket='dolarprocessed01', Key ='dolar_processed_ '+ x2 + '.csv')
+    client.put_object(Body='dolar '+ x2 + '.txt', Bucket='dolarprocessed12', Key ='dolar_processed_ '+ x2 + '.csv')
 
     #mensaje de retorno para validar que el codigo se ejecuto de manera satisfactoria
     return{
