@@ -22,9 +22,9 @@ def lambda_handler1():
     #Se inicia a subir el archivo con la libreria boto3 al bucket con nombre dolarraw01 
     client= boto3.client("s3","us-east-1")
     s3= boto3.resource('s3')
-    bucket = s3.Bucket('dolarraw01')
+    bucket = s3.Bucket('dolarraw12')
 
-    client.put_object(Body=resp.data.decode('utf-8'), Bucket='dolarraw01', Key ='dolar '+ x + '.txt')
+    client.put_object(Body=resp.data.decode('utf-8'), Bucket='dolarraw12', Key ='dolar '+ x + '.txt')
 
     return{
         'statusCode':200,
